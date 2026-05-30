@@ -1,119 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Clone</title>
+<title>Nova Store</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#f3f3f3;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
 }
 
-header{
-    background:#131921;
-    color:white;
-    padding:15px;
+body{
+    background:#f8fafc;
+}
+
+nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo{
     font-size:28px;
     font-weight:bold;
+    color:#2563eb;
 }
 
-.cart{
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 8%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.hero-text{
+    max-width:550px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-text p{
     font-size:20px;
+    line-height:1.6;
 }
 
-.products{
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:white;
+    color:#2563eb;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.hero img{
+    width:500px;
+}
+
+.features{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.features h2{
+    margin-bottom:50px;
+    font-size:40px;
+}
+
+.cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:20px;
+    gap:25px;
 }
 
 .card{
     background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 2px 5px rgba(0,0,0,.2);
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-button{
-    background:#febd69;
-    border:none;
-    padding:10px;
-    width:100%;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-button:hover{
-    background:#f3a847;
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">Amazon Clone</div>
-    <div class="cart">
-        🛒 Cart: <span id="count">0</span>
-    </div>
-</header>
+<nav>
+    <div class="logo">NovaStore</div>
 
-<div class="products">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+    <h1>Shop Smarter. Live Better.</h1>
+
+    <p>
+        Discover amazing products, exclusive offers,
+        and a seamless shopping experience.
+    </p>
+
+    <a href="#" class="btn">Start Shopping</a>
+</div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+
+</section>
+
+<section class="features">
+
+<h2>Why Choose Us?</h2>
+
+<div class="cards">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
-<h3>Running Shoes</h3>
-<p>₹1999</p>
-<button onclick="addCart()">Add to Cart</button>
+<h3>Fast Delivery</h3>
+<p>Get your orders delivered quickly.</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500">
-<h3>Smart Watch</h3>
-<p>₹2999</p>
-<button onclick="addCart()">Add to Cart</button>
+<h3>Secure Payments</h3>
+<p>100% safe and secure transactions.</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500">
-<h3>Headphones</h3>
-<p>₹1499</p>
-<button onclick="addCart()">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500">
-<h3>Smartphone</h3>
-<p>₹14999</p>
-<button onclick="addCart()">Add to Cart</button>
+<h3>24/7 Support</h3>
+<p>We're always here to help.</p>
 </div>
 
 </div>
 
-<script>
-let cart=0;
+</section>
 
-function addCart(){
-    cart++;
-    document.getElementById("count").innerText=cart;
-}
-</script>
+<footer>
+© 2026 NovaStore. All Rights Reserved.
+</footer>
 
 </body>
 </html>
