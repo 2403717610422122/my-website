@@ -3,282 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grace Store | The Future, Beautifully Delivered</title>
+<title>BookVerse</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0a0a0a,#131326,#24104d);
-color:white;
-overflow-x:hidden;
-}
-
-/* Background Glow */
-
-body::before{
-content:'';
-position:fixed;
-width:500px;
-height:500px;
-background:#7b61ff;
-border-radius:50%;
-filter:blur(180px);
-top:-100px;
-left:-100px;
-opacity:.35;
-animation:float1 10s infinite alternate;
-z-index:-1;
-}
-
-body::after{
-content:'';
-position:fixed;
-width:450px;
-height:450px;
-background:#ff4ecd;
-border-radius:50%;
-filter:blur(180px);
-bottom:-100px;
-right:-100px;
-opacity:.25;
-animation:float2 12s infinite alternate;
-z-index:-1;
-}
-
-@keyframes float1{
-from{transform:translate(0,0);}
-to{transform:translate(120px,80px);}
-}
-
-@keyframes float2{
-from{transform:translate(0,0);}
-to{transform:translate(-120px,-80px);}
+    background:#0f172a;
+    color:#f8fafc;
 }
 
 /* Navbar */
 
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 8%;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-position:sticky;
-top:0;
-z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#111827;
+    position:sticky;
+    top:0;
 }
 
 .logo{
-font-size:32px;
-font-weight:700;
-background:linear-gradient(to right,#ffd700,#ffffff,#ff66cc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+    font-size:32px;
+    font-weight:bold;
+    color:#fbbf24;
 }
 
 nav ul{
-display:flex;
-gap:30px;
-list-style:none;
+    display:flex;
+    gap:30px;
+    list-style:none;
 }
 
-nav ul li a{
-text-decoration:none;
-color:white;
-font-weight:500;
-transition:.3s;
-}
-
-nav ul li a:hover{
-color:#ffd700;
+nav a{
+    text-decoration:none;
+    color:white;
 }
 
 /* Hero */
 
 .hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:50px;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+    background:
+    linear-gradient(rgba(15,23,42,.7),
+    rgba(15,23,42,.8)),
+    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1600');
+    background-size:cover;
+    background-position:center;
 }
 
 .hero-content{
-max-width:900px;
+    max-width:800px;
 }
 
 .hero h1{
-font-size:90px;
-margin-bottom:20px;
-background:linear-gradient(to right,#ffd700,#ffffff,#ff66cc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero h2{
-font-size:28px;
-margin-bottom:25px;
-color:#ffd700;
-font-weight:400;
+    font-size:80px;
+    color:#fbbf24;
+    margin-bottom:20px;
 }
 
 .hero p{
-font-size:20px;
-line-height:1.8;
-color:#d1d5db;
-max-width:700px;
-margin:auto;
+    font-size:24px;
+    line-height:1.7;
 }
 
 .btn{
-display:inline-block;
-margin-top:35px;
-padding:16px 40px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-background:linear-gradient(45deg,#ffd700,#ff66cc);
-color:#000;
-transition:.4s;
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:#fbbf24;
+    color:black;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
 }
 
-.btn:hover{
-transform:translateY(-5px) scale(1.05);
-}
-
-/* Sections */
+/* Section */
 
 .section{
-padding:90px 8%;
+    padding:80px 8%;
 }
 
-.section-title{
-text-align:center;
-font-size:50px;
-margin-bottom:60px;
+.section h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:40px;
+    color:#fbbf24;
 }
 
-/* Glass Cards */
+/* Books */
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+.books{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
-.card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,0.1);
-padding:35px;
-border-radius:25px;
-transition:.4s;
+.book{
+    background:#1e293b;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-15px);
-box-shadow:0 0 30px rgba(255,255,255,.15);
+.book:hover{
+    transform:translateY(-10px);
 }
 
-.card h3{
-margin-bottom:15px;
-color:#ffd700;
+.book img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
 }
 
-/* Showcase */
-
-.showcase{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+.book-info{
+    padding:20px;
 }
 
-.item{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-border-radius:25px;
-overflow:hidden;
-transition:.4s;
+.book-info h3{
+    margin-bottom:10px;
 }
 
-.item:hover{
-transform:scale(1.04);
-}
-
-.item img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.item-content{
-padding:20px;
-}
-
-.price{
-margin-top:10px;
-color:#ffd700;
-font-size:22px;
-font-weight:bold;
-}
-
-/* Quote Section */
+/* Quote */
 
 .quote{
-text-align:center;
-padding:100px 10%;
+    text-align:center;
+    padding:80px 10%;
+    background:#111827;
 }
 
 .quote h2{
-font-size:48px;
-line-height:1.5;
-background:linear-gradient(to right,#ffd700,#ffffff,#ff66cc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+    font-size:38px;
+    color:#fbbf24;
 }
 
 /* Footer */
 
 footer{
-text-align:center;
-padding:30px;
-background:rgba(255,255,255,0.05);
-margin-top:50px;
-color:#d1d5db;
+    text-align:center;
+    padding:25px;
+    background:#020617;
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:55px;
+    font-size:50px;
 }
 
-.hero h2{
-font-size:22px;
+.hero p{
+    font-size:18px;
 }
 
 nav ul{
-display:none;
-}
-
-.section-title{
-font-size:35px;
-}
-
-.quote h2{
-font-size:32px;
+    display:none;
 }
 
 }
@@ -289,30 +180,31 @@ font-size:32px;
 <body>
 
 <nav>
-<div class="logo">Grace Store</div>
+
+<div class="logo">📚 BookVerse</div>
 
 <ul>
 <li><a href="#">Home</a></li>
-<li><a href="#">Vision</a></li>
-<li><a href="#">Collection</a></li>
+<li><a href="#">Books</a></li>
+<li><a href="#">Authors</a></li>
 <li><a href="#">Contact</a></li>
 </ul>
+
 </nav>
 
 <section class="hero">
 
 <div class="hero-content">
 
-<h1>Grace Store</h1>
-
-<h2>The Future, Beautifully Delivered.</h2>
+<h1>BookVerse</h1>
 
 <p>
-Experience a world where innovation, elegance, and technology unite.
-Every product is carefully curated to inspire, empower, and transform everyday living.
+Every Book Opens a New World.
+Discover timeless classics, inspiring stories,
+and unforgettable adventures.
 </p>
 
-<a href="#" class="btn">Enter The Future</a>
+<a href="#" class="btn">Explore Books</a>
 
 </div>
 
@@ -320,56 +212,31 @@ Every product is carefully curated to inspire, empower, and transform everyday l
 
 <section class="section">
 
-<h2 class="section-title">Why Grace Store?</h2>
+<h2>Featured Books</h2>
 
-<div class="cards">
+<div class="books">
 
-<div class="card">
-<h3>🌌 Infinite Possibilities</h3>
-<p>Discover products that unlock creativity and redefine modern living.</p>
-</div>
-
-<div class="card">
-<h3>⚡ Smart Living</h3>
-<p>Technology designed to simplify life while enhancing every experience.</p>
-</div>
-
-<div class="card">
-<h3>✨ Premium Experience</h3>
-<p>Luxury, trust, and quality built into every interaction.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">Beyond Products. Beyond Limits.</h2>
-
-<div class="showcase">
-
-<div class="item">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1000">
-<div class="item-content">
-<h3>Future Phone X</h3>
-<div class="price">₹29,999</div>
+<div class="book">
+<img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800">
+<div class="book-info">
+<h3>The Lost Kingdom</h3>
+<p>Fantasy Adventure</p>
 </div>
 </div>
 
-<div class="item">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1000">
-<div class="item-content">
-<h3>Neo Audio Pro</h3>
-<div class="price">₹4,999</div>
+<div class="book">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800">
+<div class="book-info">
+<h3>Beyond The Stars</h3>
+<p>Science Fiction</p>
 </div>
 </div>
 
-<div class="item">
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1000">
-<div class="item-content">
-<h3>Quantum Watch</h3>
-<div class="price">₹8,999</div>
+<div class="book">
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=800">
+<div class="book-info">
+<h3>The Silent Path</h3>
+<p>Mystery Thriller</p>
 </div>
 </div>
 
@@ -378,14 +245,15 @@ Every product is carefully curated to inspire, empower, and transform everyday l
 </section>
 
 <section class="quote">
+
 <h2>
-"Technology should not only be smart.
-It should be beautiful."
+"A reader lives a thousand lives before he dies."
 </h2>
+
 </section>
 
 <footer>
-© 2026 Grace Store • The Future, Beautifully Delivered
+© 2026 BookVerse • Every Book Opens a New World
 </footer>
 
 </body>
