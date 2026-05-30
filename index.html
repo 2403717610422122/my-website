@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grace Store</title>
+<title>Grace Store | The Future, Beautifully Delivered</title>
 
 <style>
 
@@ -12,48 +12,53 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#0f0f0f,#15152b,#2d1b69);
+background:linear-gradient(135deg,#0a0a0a,#131326,#24104d);
 color:white;
 overflow-x:hidden;
 }
 
-/* Animated Background */
+/* Background Glow */
 
 body::before{
 content:'';
 position:fixed;
-width:600px;
-height:600px;
-background:#6c63ff;
+width:500px;
+height:500px;
+background:#7b61ff;
+border-radius:50%;
 filter:blur(180px);
-top:-150px;
-left:-150px;
-opacity:.4;
-animation:move1 8s infinite alternate;
+top:-100px;
+left:-100px;
+opacity:.35;
+animation:float1 10s infinite alternate;
+z-index:-1;
 }
 
 body::after{
 content:'';
 position:fixed;
-width:500px;
-height:500px;
-background:#ff00ff;
+width:450px;
+height:450px;
+background:#ff4ecd;
+border-radius:50%;
 filter:blur(180px);
-bottom:-150px;
-right:-150px;
-opacity:.3;
-animation:move2 10s infinite alternate;
+bottom:-100px;
+right:-100px;
+opacity:.25;
+animation:float2 12s infinite alternate;
+z-index:-1;
 }
 
-@keyframes move1{
+@keyframes float1{
 from{transform:translate(0,0);}
-to{transform:translate(150px,100px);}
+to{transform:translate(120px,80px);}
 }
 
-@keyframes move2{
+@keyframes float2{
 from{transform:translate(0,0);}
 to{transform:translate(-120px,-80px);}
 }
@@ -65,17 +70,17 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
-position:sticky;
-top:0;
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(15px);
+position:sticky;
+top:0;
 z-index:1000;
 }
 
 .logo{
 font-size:32px;
-font-weight:bold;
-background:linear-gradient(to right,#ffd700,#ffffff);
+font-weight:700;
+background:linear-gradient(to right,#ffd700,#ffffff,#ff66cc);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -86,10 +91,15 @@ gap:30px;
 list-style:none;
 }
 
-nav a{
-color:white;
+nav ul li a{
 text-decoration:none;
+color:white;
 font-weight:500;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#ffd700;
 }
 
 /* Hero */
@@ -104,21 +114,30 @@ padding:50px;
 }
 
 .hero-content{
-max-width:850px;
+max-width:900px;
 }
 
 .hero h1{
-font-size:80px;
+font-size:90px;
 margin-bottom:20px;
-background:linear-gradient(to right,#ffd700,#ffffff,#ff66ff);
+background:linear-gradient(to right,#ffd700,#ffffff,#ff66cc);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
+.hero h2{
+font-size:28px;
+margin-bottom:25px;
+color:#ffd700;
+font-weight:400;
+}
+
 .hero p{
-font-size:22px;
+font-size:20px;
 line-height:1.8;
 color:#d1d5db;
+max-width:700px;
+margin:auto;
 }
 
 .btn{
@@ -126,28 +145,30 @@ display:inline-block;
 margin-top:35px;
 padding:16px 40px;
 border-radius:50px;
-background:linear-gradient(45deg,#ffd700,#ff66ff);
-color:black;
-font-weight:bold;
 text-decoration:none;
+font-weight:bold;
+background:linear-gradient(45deg,#ffd700,#ff66cc);
+color:#000;
 transition:.4s;
 }
 
 .btn:hover{
-transform:scale(1.08);
+transform:translateY(-5px) scale(1.05);
 }
 
-/* Cards */
+/* Sections */
 
 .section{
-padding:80px 8%;
+padding:90px 8%;
 }
 
-.section h2{
+.section-title{
 text-align:center;
-font-size:45px;
-margin-bottom:50px;
+font-size:50px;
+margin-bottom:60px;
 }
+
+/* Glass Cards */
 
 .cards{
 display:grid;
@@ -159,14 +180,14 @@ gap:30px;
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,0.1);
-padding:30px;
+padding:35px;
 border-radius:25px;
 transition:.4s;
 }
 
 .card:hover{
 transform:translateY(-15px);
-box-shadow:0 0 30px rgba(255,255,255,0.2);
+box-shadow:0 0 30px rgba(255,255,255,.15);
 }
 
 .card h3{
@@ -174,41 +195,56 @@ margin-bottom:15px;
 color:#ffd700;
 }
 
-/* Product Showcase */
+/* Showcase */
 
-.products{
+.showcase{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:30px;
 }
 
-.product{
+.item{
 background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
 border-radius:25px;
 overflow:hidden;
-backdrop-filter:blur(15px);
 transition:.4s;
 }
 
-.product:hover{
+.item:hover{
 transform:scale(1.04);
 }
 
-.product img{
+.item img{
 width:100%;
 height:250px;
 object-fit:cover;
 }
 
-.product-info{
+.item-content{
 padding:20px;
 }
 
 .price{
+margin-top:10px;
 color:#ffd700;
 font-size:22px;
 font-weight:bold;
-margin-top:10px;
+}
+
+/* Quote Section */
+
+.quote{
+text-align:center;
+padding:100px 10%;
+}
+
+.quote h2{
+font-size:48px;
+line-height:1.5;
+background:linear-gradient(to right,#ffd700,#ffffff,#ff66cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 /* Footer */
@@ -218,6 +254,7 @@ text-align:center;
 padding:30px;
 background:rgba(255,255,255,0.05);
 margin-top:50px;
+color:#d1d5db;
 }
 
 /* Mobile */
@@ -225,17 +262,30 @@ margin-top:50px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:50px;
+font-size:55px;
+}
+
+.hero h2{
+font-size:22px;
 }
 
 nav ul{
 display:none;
 }
 
+.section-title{
+font-size:35px;
+}
+
+.quote h2{
+font-size:32px;
+}
+
 }
 
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -243,8 +293,8 @@ display:none;
 
 <ul>
 <li><a href="#">Home</a></li>
+<li><a href="#">Vision</a></li>
 <li><a href="#">Collection</a></li>
-<li><a href="#">Technology</a></li>
 <li><a href="#">Contact</a></li>
 </ul>
 </nav>
@@ -253,14 +303,16 @@ display:none;
 
 <div class="hero-content">
 
-<h1>Discover Tomorrow</h1>
+<h1>Grace Store</h1>
+
+<h2>The Future, Beautifully Delivered.</h2>
 
 <p>
-Welcome to Grace Store — where innovation meets luxury.
-Explore futuristic gadgets, premium technology, and next-generation experiences.
+Experience a world where innovation, elegance, and technology unite.
+Every product is carefully curated to inspire, empower, and transform everyday living.
 </p>
 
-<a href="#" class="btn">Explore Collection</a>
+<a href="#" class="btn">Enter The Future</a>
 
 </div>
 
@@ -268,23 +320,23 @@ Explore futuristic gadgets, premium technology, and next-generation experiences.
 
 <section class="section">
 
-<h2>Why Grace Store?</h2>
+<h2 class="section-title">Why Grace Store?</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>🚀 Future Technology</h3>
-<p>Cutting-edge products designed for tomorrow.</p>
+<h3>🌌 Infinite Possibilities</h3>
+<p>Discover products that unlock creativity and redefine modern living.</p>
+</div>
+
+<div class="card">
+<h3>⚡ Smart Living</h3>
+<p>Technology designed to simplify life while enhancing every experience.</p>
 </div>
 
 <div class="card">
 <h3>✨ Premium Experience</h3>
-<p>Luxury shopping with stunning design and quality.</p>
-</div>
-
-<div class="card">
-<h3>🔒 Secure & Trusted</h3>
-<p>Safe transactions and customer-first service.</p>
+<p>Luxury, trust, and quality built into every interaction.</p>
 </div>
 
 </div>
@@ -293,29 +345,29 @@ Explore futuristic gadgets, premium technology, and next-generation experiences.
 
 <section class="section">
 
-<h2>Featured Collection</h2>
+<h2 class="section-title">Beyond Products. Beyond Limits.</h2>
 
-<div class="products">
+<div class="showcase">
 
-<div class="product">
+<div class="item">
 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1000">
-<div class="product-info">
-<h3>Smart Device X</h3>
+<div class="item-content">
+<h3>Future Phone X</h3>
 <div class="price">₹29,999</div>
 </div>
 </div>
 
-<div class="product">
+<div class="item">
 <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1000">
-<div class="product-info">
+<div class="item-content">
 <h3>Neo Audio Pro</h3>
 <div class="price">₹4,999</div>
 </div>
 </div>
 
-<div class="product">
+<div class="item">
 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1000">
-<div class="product-info">
+<div class="item-content">
 <h3>Quantum Watch</h3>
 <div class="price">₹8,999</div>
 </div>
@@ -325,8 +377,15 @@ Explore futuristic gadgets, premium technology, and next-generation experiences.
 
 </section>
 
+<section class="quote">
+<h2>
+"Technology should not only be smart.
+It should be beautiful."
+</h2>
+</section>
+
 <footer>
-© 2026 Grace Store • The Future Starts Here
+© 2026 Grace Store • The Future, Beautifully Delivered
 </footer>
 
 </body>
